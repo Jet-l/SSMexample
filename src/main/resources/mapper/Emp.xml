@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.dbly.ssm.dao.IEmpDAO">
+
+    <insert id="addEmp" parameterType="com.dbly.ssm.entity.Emp">
+        INSERT INTO emp
+        VALUES (null,#{ename},#{password},#{sal},#{deptName})
+    </insert>
+
+    <select id="listEmp" resultType="com.dbly.ssm.entity.Emp">
+        SELECT * FROM emp
+    </select>
+
+    <select id="findEmpByEmpno" parameterType="int" resultType="com.dbly.ssm.entity.Emp">
+        select * from emp where empno=#{empno}
+    </select>
+
+    <update id="updateEmp" parameterType="com.dbly.ssm.entity.Emp">
+        update emp
+        set ename=#{ename},password=#{password},sal=#{sal},deptName=#{deptName}
+        where empno=#{empno}
+    </update>
+</mapper>
